@@ -7,5 +7,5 @@ import com.megamart.order.oderline.OrderLineRequest;
 public interface OrderLineService {
 
 
-    void addOrderLine(OrderLineRequest orderLineRequest);
+    Integer addOrderLine(OrderLineRequest orderLineRequest);
 }

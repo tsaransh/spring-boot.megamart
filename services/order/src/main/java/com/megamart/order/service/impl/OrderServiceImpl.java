@@ -52,6 +52,10 @@ public class OrderServiceImpl implements OrderService {
             );
         }
 
+        // todo: start payment
+
+        // todo: send order confirmation (using kafka)
+
         return 0;
     }
 }

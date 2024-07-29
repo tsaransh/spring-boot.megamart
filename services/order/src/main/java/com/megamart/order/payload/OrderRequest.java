@@ -1,6 +1,5 @@
-package com.megamart.order.controller;
+package com.megamart.order.payload;
 
-import com.megamart.order.dto.PurchaseRequest;
 import com.megamart.order.entity.PaymentMethod;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;

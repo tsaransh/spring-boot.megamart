@@ -1,4 +1,4 @@
-package com.megamart.order.dto;
+package com.megamart.order.payload;
 
 import com.megamart.order.entity.Order;
 import com.megamart.order.entity.OrderLine;
@@ -18,5 +18,12 @@ public class OrderLineMapper {
                 )
                 .productId(orderLineRequest.productId())
                 .build();
+    }
+
+    public OrderLineResponse toOrderLineResponse(OrderLine orderLine) {
+        return new OrderLineResponse(
+                orderLine.getId(),
+                orderLine.getQuantity()
+        );
     }
 }

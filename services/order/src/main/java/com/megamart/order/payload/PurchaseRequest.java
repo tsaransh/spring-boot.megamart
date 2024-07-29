@@ -1,4 +1,4 @@
-package com.megamart.order.dto;
+package com.megamart.order.payload;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;

@@ -1,6 +1,5 @@
-package com.megamart.order.dto;
+package com.megamart.order.payload;
 
-import com.megamart.order.controller.OrderRequest;
 import com.megamart.order.entity.Order;
 import org.springframework.stereotype.Service;
 
@@ -16,5 +15,15 @@ public class OrderMapper {
                 .totalAmount(request.amount())
                 .paymentMethod(request.paymentMethod())
                 .build();
+    }
+
+    public OrderResponse fromOrder(Order order) {
+        return new OrderResponse(
+                order.getId(),
+                order.getReference(),
+                order.getTotalAmount(),
+                order.getPaymentMethod(),
+                order.getCustomerId()
+        );
     }
 }

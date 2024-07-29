@@ -1,6 +1,6 @@
 package com.megamart.order.product;
 
-import com.megamart.order.dto.PurchaseRequest;
+import com.megamart.order.payload.PurchaseRequest;
 import com.megamart.order.exception.BusinessException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

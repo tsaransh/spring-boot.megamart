@@ -1,0 +1,14 @@
+package com.megamart.order.payload;
+
+import com.megamart.order.entity.PaymentMethod;
+
+import java.math.BigDecimal;
+
+public record OrderResponse(
+        Integer id,
+        String reference,
+        BigDecimal amount,
+        PaymentMethod paymentMethod,
+        String customerId
+) {
+}

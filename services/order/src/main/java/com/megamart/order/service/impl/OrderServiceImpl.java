@@ -5,6 +5,7 @@ import com.megamart.order.payload.*;
 import com.megamart.order.customer.CustomerClient;
 import com.megamart.order.exception.BusinessException;
 import com.megamart.order.oderline.OrderLineRequest;
+import com.megamart.order.payment.PaymentClient;
 import com.megamart.order.product.ProductClient;
 import com.megamart.order.repository.OrderRepository;
 import com.megamart.order.service.OrderLineService;
@@ -27,6 +28,7 @@ public class OrderServiceImpl implements OrderService {
     private final OrderMapper mapper;
     private final OrderLineService orderLineService;
     private final OrderProducer orderProducer;
+    private final PaymentClient paymentClient;
 
     @Override
     public Integer createOrder(OrderRequest request) {
@@ -55,7 +57,15 @@ public class OrderServiceImpl implements OrderService {
             );
         }
 
-        // todo: start payment
+        // start payment
+        var paymentRequest = new PaymentRequest(
+                request.amount(),
+                request.paymentMethod(),
+                order.getId(),
+                order.getReference(),
+                customer
+        );
+        paymentClient.requestOrderPayment(paymentRequest);
 
         // send order confirmation (using kafka)
         orderProducer.sendOrderConfirmation(

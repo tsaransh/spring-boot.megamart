@@ -4,6 +4,7 @@
     <option name="moduleMapping">
       <map>
         <entry key="e-commerce-app" value="e-commerce" />
+        <entry key="notification" value="nofitication" />
       </map>
     </option>
   </component>
